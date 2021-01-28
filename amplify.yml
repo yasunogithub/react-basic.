@@ -7,7 +7,7 @@ frontend:
       - npm install -g
     build:
       commands:
-      - REACT_APP_ENV_MYENV=test npm run build
+      - REACT_APP_MYENV=test npm run build
   artifacts:
     baseDirectory: "./build"
     files:
