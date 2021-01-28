@@ -26,4 +26,5 @@ jobs:
           ls
           ruby ./modifyAmplify.rb ${{github.event.client_payload.reactEnv}}
           git switch -c ${{ github.event.client_payload.ref }}
+          git add -A && git commit -a -m "${{github.event.client_payload.comment}}"
           git push origin ${{ github.event.client_payload.ref }}
