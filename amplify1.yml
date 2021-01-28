@@ -6,8 +6,7 @@ frontend:
       commands:
       - npm install -g
     build:
-      commands:
-      - REACT_APP_ENV_MYTEST=test npm run build
+      commands: hogehoge
   artifacts:
     baseDirectory: "./build"
     files:
