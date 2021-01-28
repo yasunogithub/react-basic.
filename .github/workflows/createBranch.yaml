@@ -16,7 +16,7 @@ jobs:
       - name: checkout dev
         uses: actions/checkout@v2
         with:
-          ref: dev
+          ref: master
       - name: git setting
         run: | 
           git config --local user.email "yasunoaddress.s@gmail.com"
