@@ -22,6 +22,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ruby modifyAmplify.rb ${{github.event.client_payload.reactEnv}}
+          pwd
+          ls
+          ruby ./modifyAmplify.rb ${{github.event.client_payload.reactEnv}}
           git switch -c ${{ github.event.client_payload.ref }}
           git push origin ${{ github.event.client_payload.ref }}
