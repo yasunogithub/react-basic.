@@ -1,16 +1,16 @@
 version: 1
-applications:
-  - frontend:
-      phases:
-        preBuild:
-            commands:
-                - yarn install
-        build:
-          commands: ["yarn build"]
-      artifacts:
-        baseDirectory: build
-        files:
-          - '**/*'
-      cache:
-        paths: []
-    appRoot: public
+frontend:
+  phases:
+    install:
+      commands:
+        - npm install
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
