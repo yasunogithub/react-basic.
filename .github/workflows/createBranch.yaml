@@ -9,20 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-      with:
-        ruby-version: 2.6
-    - name: checkout dev
-    - uses: actions/checkout@v2
-      with:
-        ref: dev
+      - name: ruby setup
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6  
+      - name: checkout dev
+        uses: actions/checkout@v2
+        with:
+          ref: dev
 
-    - name: Create new Branch
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-          ruby modifyAmplify.rb "${{github.event.client_payload.reactEnv}}"
+      - name: Create new Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           git switch -c ${{ github.event.client_payload.ref }}
           git push origin ${{ github.event.client_payload.ref }}
